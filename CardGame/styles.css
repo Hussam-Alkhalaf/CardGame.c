@@ -1,0 +1,203 @@
+:root {
+    --background-color: #2d2d2d;
+    --text-color: white;
+    --button-color: #4CAF50;
+}
+
+/* Grundlegende Seitenstyling */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+/* Ladebildschirm-Styling */
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    font-size: 24px;
+}
+
+/* Hauptspielcontainer */
+.game-container {
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+    transition: opacity 0.3s;
+}
+
+.game-container.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Container für die Kartenstreuung */
+.scatter-container {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    width: 10vw;
+    height: 30vh;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Styling für gestreute Karten */
+.scattered-card {
+    position: absolute;
+    width: 120px;
+    height: 180px;
+    transform-origin: center;
+    opacity: 0;
+    transition: all 1s ease;
+}
+
+.scattered-card img {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.scattered-card.active {
+    opacity: 1;
+    transform: translate(var(--x), var(--y)) rotate(var(--rotation));
+}
+
+.scattered-card.collect {
+    transform: translate(50vw, 50vh) rotate(0deg) scale(0.1);
+    opacity: 0;
+}
+
+/* Rundeninformation */
+.round-info {
+    margin: 20px 0;
+    font-size: 24px;
+}
+
+/* Spaltencontainer */
+.columns-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+/* Einzelne Spalte */
+.column {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    background-color: #3d3d3d;
+    border-radius: 50px;
+    position: relative;
+}
+
+/* Kartenstapel */
+.cards-stack {
+    position: relative;
+    height: 460px;
+    width: 120px;
+}
+
+/* Einzelne Karte */
+.card {
+    position: absolute;
+    width: 120px;
+    height: 190px;
+    border-radius: 10px;
+    transition: transform 0.2s;
+    cursor: default;
+    left: 0;
+}
+
+.card img {
+    width: 100%;
+    height: 90%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* Button-Container */
+.buttons-container {
+    margin: auto;
+    width: 47%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+/* Button-Styling */
+button {
+    padding: 12px 24px; /* Größere Polsterung für einen moderneren Look */
+    font-size: 18px;
+    background: linear-gradient(45deg, #4CAF50, #45a049); /* Farbverlauf */
+    color: white;
+    border: none;
+    border-radius: 25px; /* Abgerundete Ecken */
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s; /* Übergänge für Hintergrund und Transformation */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Schatten für Tiefe */
+}
+
+button:hover {
+    background: linear-gradient(45deg, #45a049, #4CAF50); /* Farbverlauf umkehren bei Hover */
+    transform: translateY(-2px); /* Leichtes Anheben bei Hover */
+}
+
+button:focus {
+    outline: none; /* Entferne den Standard-Fokusrahmen */
+    box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.5); /* Füge einen Fokusrahmen hinzu */
+}
+
+/* Modal-Styling */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #3d3d3d;
+    padding: 40px;
+    border-radius: 10px;
+    text-align: center;
+    transform: scale(0);
+    transition: transform 0.5s ease;
+}
+
+.modal.active .modal-content {
+    transform: scale(1);
+}
+
+@media (max-width: 600px) {
+    .game-container {
+        padding: 10px;
+    }
+}
