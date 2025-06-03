@@ -123,8 +123,8 @@ body {
 /* Einzelne Karte */
 .card {
     position: absolute;
-    width: 120px;
-    height: 190px;
+    width: 90px;
+    height: 140px;
     border-radius: 10px;
     transition: transform 0.2s;
     cursor: default;
