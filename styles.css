@@ -197,10 +197,28 @@ button:focus {
     transform: scale(1);
 }
 
-/* Responsive: auf kleinen Geräten 1 Spalte */
+/* Für kleine Bildschirme: Spalten untereinander */
 @media (max-width: 600px) {
-  .container {
+  .columns-container {
     flex-direction: column;
     align-items: center;
+  }
+
+  .column {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .cards-stack {
+    width: 100%;
+    height: auto;
+  }
+
+  .card {
+    position: relative;
+    margin: 10px 0;
+  }
+}
+
     }
 }
