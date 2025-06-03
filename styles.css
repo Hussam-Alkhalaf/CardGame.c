@@ -197,7 +197,6 @@ button:focus {
     transform: scale(1);
 }
 
-/* Für kleine Bildschirme: Spalten untereinander */
 @media (max-width: 600px) {
   .columns-container {
     flex-direction: column;
@@ -205,8 +204,9 @@ button:focus {
   }
 
   .column {
-    width: 100%;
-    max-width: 300px;
+    width: 90%;
+    max-width: 320px;
+    margin-bottom: 20px;
   }
 
   .cards-stack {
@@ -218,7 +218,16 @@ button:focus {
     position: relative;
     margin: 10px 0;
   }
+
+  .buttons-container {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  button {
+    width: 80%;
+    margin: 0 auto;
+  }
 }
 
-    }
-}
