@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kartenratespiel</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Verlinkung zur CSS-Datei -->
+</head>
+<body>
+    <div class="loading" id="loadingScreen">
+        Karten werden geladen...
+    </div>
+
+    <div class="scatter-container" id="scatterContainer"></div>
+
+    <div class="game-container" id="gameContainer">
+        <h1>Kartenratespiel</h1>
+        <div class="round-info">Runde: <span id="roundNumber">1</span>/3</div>
+        <div class="instructions" id="instructions">Wähle eine Karte aus und merke sie dir. Wähle dann den Bereich, in dem sich deine Karte befindet.</div>
+        
+        <div class="columns-container" id="columnsContainer">
+            <!-- Spalten werden durch JavaScript hinzugefügt -->
+        </div>
+
+        <div class="buttons-container">
+            <button onclick="handleColumnChoice(1)">Bereich 1</button>
+            <button onclick="handleColumnChoice(2)">Bereich 2</button>
+            <button onclick="handleColumnChoice(3)">Bereich 3</button>
+        </div>
+    </div>
+
+    <div class="modal" id="resultModal" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalDescription">
+        <div class="modal-content">
+            <h2 id="modalTitle">Endergebnis</h2>
+            <p id="modalDescription">Deine Karte ist:</p>
+            <div id="finalCard"></div>
+            <button onclick="restartGame()">Noch einmal spielen</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script> <!-- Verlinkung zur JavaScript-Datei -->
+</body>
+</html>
