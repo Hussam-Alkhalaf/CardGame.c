@@ -1,4 +1,3 @@
-
 :root {
     --background-color: #2d2d2d;
     --text-color: white;
@@ -123,8 +122,8 @@ body {
 /* Einzelne Karte */
 .card {
     position: absolute;
-    width: 90px;
-    height: 140px;
+    width: 120px;
+    height: 190px;
     border-radius: 10px;
     transition: transform 0.2s;
     cursor: default;
@@ -191,43 +190,17 @@ button:focus {
     text-align: center;
     transform: scale(0);
     transition: transform 0.5s ease;
+    
 }
 
 .modal.active .modal-content {
     transform: scale(1);
 }
 
+
 @media (max-width: 600px) {
-  .columns-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .column {
-    width: 90%;
-    max-width: 320px;
-    margin-bottom: 20px;
-  }
-
-  .cards-stack {
-    width: 100%;
-    height: auto;
-  }
-
-  .card {
-    position: relative;
-    margin: 10px 0;
-  }
-
-  .buttons-container {
-    flex-direction: column;
-    gap: 10px;
-    width: 100%;
-  }
-
-  button {
-    width: 80%;
-    margin: 0 auto;
-  }
+    .cards-stack, .card {
+        width: 70px;
+        height: 100px;
+    }
 }
-
